@@ -58,12 +58,26 @@ public class SafeInput {
 
     // Part E: getRangedDouble
     public static double getRangedDouble(Scanner pipe, String prompt, double low, double high) {
-        double value;
+        double value = 0.0;
+        boolean validInput;
         do {
-            value = getDouble(pipe, prompt + " [" + low + " - " + high + "]");
-        } while (value < low || value > high);
+            System.out.print("\n" + prompt + " [" + low + " - " + high + "]: ");
+            if (pipe.hasNextDouble()) {
+                value = pipe.nextDouble();
+                validInput = value >= low && value <= high; // Check if the value is within the specified range
+                if (!validInput) {
+                    System.out.println("Value out of range. Please enter a value between " + low + " and " + high + ".");
+                }
+            } else {
+                pipe.next(); // Read and discard the invalid input
+                System.out.println("Invalid input. Please enter a valid double.");
+                validInput = false;
+            }
+        } while (!validInput);
+        pipe.nextLine(); // Clear the newline character
         return value;
     }
+
 
     // Part F: getYNConfirm
     public static boolean getYNConfirm(Scanner pipe, String prompt) {

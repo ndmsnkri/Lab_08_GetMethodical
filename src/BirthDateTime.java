@@ -22,6 +22,6 @@ public class BirthDateTime {
         int hours = SafeInput.getRangedInt(scanner, "Enter the hour of your birth", 1, 24);
         int minutes = SafeInput.getRangedInt(scanner, "Enter the minutes of your birth", 1, 59);
 
-        System.out.println("Date and Time of Birth: " + year + "-" + month + "-" + day + " " + hours + ":" + minutes);
+        System.out.println("\nDate and Time of Birth: " + year + "-" + month + "-" + day + " " + hours + ":" + minutes);
     }
 }

@@ -7,11 +7,11 @@ public class CheckOut {
         boolean moreItems;
 
         do {
-            double itemPrice = SafeInput.getRangedDouble(scanner, "Enter the item price (0.50 - 10.00)", 0.50, 10.00);
+            double itemPrice = SafeInput.getRangedDouble(scanner, "Enter the item price ", 0.50, 10.00);
             totalCost += itemPrice;
             moreItems = SafeInput.getYNConfirm(scanner, "Do you have more items to add?");
         } while (moreItems);
 
-        System.out.printf("Total Cost: $%.2f%n", totalCost);
+        System.out.printf("\nTotal Cost: $%.2f%n", totalCost);
     }
 }
